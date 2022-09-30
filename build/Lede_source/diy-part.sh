@@ -10,7 +10,7 @@
 
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.2.1'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.2.99'                      # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
 #uci set network.lan.gateway='192.168.2.1'                     # IPv4 网关
 #uci set network.lan.broadcast='192.168.2.255'                 # IPv4 广播
@@ -107,7 +107,7 @@ sed -i 's/"带宽监控"/"监控"/g' `egrep "带宽监控" -rl ./`
 sed -i '$a src-git ipkg https://github.com/xiangfeidexiaohuo/op-ipkg\n' feeds.conf.default
 
 #添加kenzok8插件包
-#sed -i '$a src-git smpackage https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git smpackage https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 
 #已修复，下面代码用不着
 #sed -i 's/PKG_HASH.*/PKG_HASH:=skip/' feeds/packages/utils/containerd/Makefile
